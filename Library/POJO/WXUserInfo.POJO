@@ -1,0 +1,8 @@
+<?php 
+class WXUserInfo
+{	
+	var $openid;
+	var $wx_name;
+	var $wx_litpic;	
+}
+?>

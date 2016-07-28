@@ -1,0 +1,9 @@
+<?php 
+class UserInfo
+{
+    var $user_name;
+    var $user_ip;
+    var $user_logintime;
+    var $user_regtime;
+}
+?>

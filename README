@@ -1,0 +1,29 @@
+Common      --公共的函数
+
+       Cache.php        --缓存函数库
+       Common.php       --主函数库
+       DesCrypt.php     --DES加密函数库
+       Lee.php          --开发者函数库
+
+Inc         --组件
+
+       CssLoader.php    --css加载器组件
+       JsLoader.php     --js加载器组件
+       Page.inc.php     --分页组件
+
+Library     --类库
+
+        Medoo           --sql类库
+        POJO            --实体类
+        Public          --公共类
+        WeiXin          --微信类
+
+MVC         --三层架构
+
+Src         --css/js
+
+.htaccess   --路由规则
+
+Config.php  --配置文件
+
+Index.php   --入口文件

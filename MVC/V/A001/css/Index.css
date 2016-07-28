@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+#footer {
+    background: #fff none repeat scroll 0 0;
+    border-top: 1px solid #ddd;
+    padding: 15px 0;
+    text-align: center;
+}
+
+.price{color:#e4393c} 
+.btn:hover{border-color:#e4393c;color:#e4393c;background:#ffffff;}

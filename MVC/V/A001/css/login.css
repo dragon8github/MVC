@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+
+#login_container{
+	margin-top:10%;
+}
+
+.login_label{
+	text-index:15px;
+}
