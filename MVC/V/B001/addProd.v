@@ -3,16 +3,16 @@
 		<div style="padding:10px 60px 20px 260px">
 	    <form id="ff" method="post" >
 	    	<table cellpadding="5">
-	    		{foreach:tbSet name="tb"}
+	    		<?php foreach ($tb as $v): ?>
 	    		<tr>
-	    			<td>{tb.COLUMN_COMMENT}:</td>
+	    			<td><?php echo $v["COLUMN_COMMENT"] ?>:</td>
 	    			<td>
-	    				{genInput('tb.column_type')}
+	    				<?php echo $v["COLUMN_TYPE"] ?>
 	    				<input autocomplete="off" class="easyui-textbox" 
 	    				type="text" name="name" 
 	    				data-options="required:true"></input></td>
 	    		</tr>
-	    		{/endforeach}
+	    		<?php endforeach ?>
 	    	</table>
 	    </form>
 	    <div style="text-align:center;padding:5px">

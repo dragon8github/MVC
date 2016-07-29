@@ -23,13 +23,11 @@ class Admin extends Controller
 
     $COLUMNS_model = load_model('columns',DB_SYSNAME); 
 
-    $Result =  $COLUMNS_model->query("select COLUMN_NAME,DATA_TYPE,COLUMN_COMMENT from `COLUMNS` where TABLE_NAME = 'shop_prod' and TABLE_SCHEMA = 'huahua' AND EXTRA != 'auto_increment'");
+    $Result =  $COLUMNS_model->query("select COLUMN_NAME,COLUMN_TYPE,IS_NULLABLE,COLUMN_COMMENT from `COLUMNS` where TABLE_NAME = 'shop_prod' and TABLE_SCHEMA = 'huahua' AND EXTRA != 'auto_increment'");
 
-    var_export($Result); 
-  
-
+    $this->addObject("tb",$Result);
     
-    //$this->display();
+    $this->display(true,true);
   }
 
   private  function getTree_children($id,$tree)
