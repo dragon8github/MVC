@@ -75,14 +75,17 @@
     function select($whereArray = [],$colArray = "*")
     {
         if(count($whereArray) == 0) return $this->_db->select($this->_modelName,$colArray); 
-        return $this->_db->debug()->select($this->_modelName,$colArray,$whereArray);
+        return $this->_db->select($this->_modelName,$colArray,$whereArray);
     }
 
      //查找一条
     function find($whereArray = [],$colArray = "*")
     {
         $whereArray["LIMIT"] = '1';
-        $this->_Result =  $this->select($this->_modelName,$colArray,$whereArray)[0];
+        $this->_Result = $this->_db->select($this->_modelName,$colArray,$whereArray)[0];
+        //$this->_Result = (object)$this->_db->select($this->_modelName,$colArray,$whereArray)[0];
+        //exit(var_export($this->_Result->user_pwd,true));
+        //exit(var_export((object)$this->_db->select($this->_modelName,$colArray,$whereArray)[0],true));
         return $this->_Result;
     }
 

@@ -35,9 +35,9 @@ class Login extends Controller
            AJAX("用户名或者密码不能为空", "", "失败");
        }
        
-       $m = load_model("user");
+       $m = load_model("shop_user");
        $m->find(["user_name"=>$get_usernaeme],["user_pwd"]);
-       $pwd =  $m->user_pwd; 
+       $pwd = $m->user_pwd; 
        IF($pwd)
        {
                IF(myCrypt($get_password, DESKEY) == $pwd)

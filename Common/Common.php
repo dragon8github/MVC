@@ -15,7 +15,7 @@ function exit_404()
 }
 
 //引用model
-function load_model($modelName,$database_name)
+function load_model($modelName,$database_name = DB_NAME)
 {
     return new Model($modelName,$database_name);
 }
