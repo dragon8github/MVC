@@ -1,16 +1,14 @@
  
 	<div class="easyui-panel" title="商品添加" style="width:100%;height:100%">
-		<div style="padding:10px 60px 20px 260px">
+		<div style="padding:10px 60px 20px 160px">
 	    <form id="ff" method="post" >
 	    	<table cellpadding="5">
 	    		<?php foreach ($tb as $v): ?>
 	    		<tr>
-	    			<td><?php echo $v["COLUMN_COMMENT"] ?>:</td>
+	    			<td><?php echo genInputLabel($v["COLUMN_COMMENT"]); ?>:</td>
 	    			<td>
-	    				<?php echo $v["COLUMN_TYPE"] ?>
-	    				<input autocomplete="off" class="easyui-textbox" 
-	    				type="text" name="name" 
-	    				data-options="required:true"></input></td>
+	    				<?php echo genInput($v["DATA_TYPE"],$v["IS_NULLABLE"],$v["COLUMN_NAME"],$v["CHARACTER_MAXIMUM_LENGTH"],$v["COLUMN_COMMENT"]); ?>
+    				</td>
 	    		</tr>
 	    		<?php endforeach ?>
 	    	</table>

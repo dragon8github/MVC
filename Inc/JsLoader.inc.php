@@ -12,6 +12,12 @@ class JsLoader
     {
        echo  sprintf("<script type='text/javascript' src='/MVC/V/%s/js/%s'></script>",$CURRENT_THEME,$FileName);
     }
+
+    public static function Ueditor()
+    {
+        echo sprintf("<script type='text/javascript' src='/Src/Js/%s'></script>",'ueditor/ueditor.config.js');
+        echo sprintf("<script type='text/javascript' src='/Src/Js/%s'></script>",'ueditor/ueditor.all.min.js');
+    }
     
     public static function easyui()
     {

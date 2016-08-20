@@ -19,14 +19,25 @@ class Admin extends Controller
   #添加商品
   function addProd()
   {
+
+    if($_POST)
+    {
+        $prod = load_model("shop_prod");
+        $_arr = array(
+            "prod_name"=>POST("prod_name"),
+            "prod_intr"=>POST("prod_intr"),
+            "prod_classid"=>POST("prod_classid"),
+            "is_public"=>POST("is_public") == null ? 0:1,
+            "add_time"=>POST("add_time")
+        );
+        $rowsCount = $prod->insert($_arr);
+        exit($rowsCount); 
+    }
+
     $this->_viewName = "addProd";
-
     $COLUMNS_model = load_model('columns',DB_SYSNAME); 
-
-    $Result =  $COLUMNS_model->query("select COLUMN_NAME,COLUMN_TYPE,IS_NULLABLE,COLUMN_COMMENT from `COLUMNS` where TABLE_NAME = 'shop_prod' and TABLE_SCHEMA = 'huahua' AND EXTRA != 'auto_increment'");
-
+    $Result =  $COLUMNS_model->query("select COLUMN_NAME,DATA_TYPE,CHARACTER_MAXIMUM_LENGTH,IS_NULLABLE,COLUMN_COMMENT from `COLUMNS` where TABLE_NAME = 'shop_prod' and TABLE_SCHEMA = 'huahua' AND EXTRA != 'auto_increment'");
     $this->addObject("tb",$Result);
-    
     $this->display(true,true);
   }
 
