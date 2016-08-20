@@ -121,4 +121,15 @@ function WriteLog($msg,$module = null,$logLevel = "DEBUG")
     fwrite($MyLogFile,$logLine);
 }
 
+
+//justStringArr
+function justStringArr($v)
+{
+    $arr2 = array();
+    foreach ($v as $key => $value) {
+        if(preg_match('/[a-zA-Z]/', $key)) $arr2[$key] = $value;
+    }
+    return $arr2;
+}
+
 ?>

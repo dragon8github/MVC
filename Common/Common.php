@@ -86,7 +86,7 @@ function genInput($colType,$isnullable,$colName,$length,$comment)
      $select='<select name="'.$colName.'"  class="easyui-combobox" >';
      $json=json_decode($comment[1]);
      $tb=load_model($json->tb);
-     $result = $tb->select();
+     $result = $tb->select(); 
      foreach($result as $r)
      {
       $select.="<option value='".$r[$json->id]."'>".$r[$json->text]."</option>";

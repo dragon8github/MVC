@@ -16,6 +16,30 @@ class Admin extends Controller
 		  $this->display(true,true);
 	}
 
+  function listProd()
+  {
+    $this->_viewName = "listProd";
+    $this->display(true,true);
+  }
+
+
+   function getprod()
+   {
+      //当前页码
+      $page=1;if(isset($_GET["page"])) $page=intval($_GET["page"]);
+      //每页显示多少条
+      $pagesize=2;if(isset($_GET["rows"])) $pagesize=intval($_GET["rows"]);
+      //limit
+      $limit = ($page-1)*$pagesize;
+      //载入模型      
+      $prod=load_model("shop_prod");      
+      //把notor的值直接转化为array
+      $ret=$prod->query("SELECT * FROM shop_prod order by id DESC LIMIT {$limit},{$pagesize}");
+      //返回easyui的json格式
+      $result=array("rows"=>$ret,"total"=>$prod->count(),"page"=>$page);
+      //exit
+      exit(json_encode($result));
+   }
   #添加商品
   function addProd()
   {

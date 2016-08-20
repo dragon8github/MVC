@@ -1,6 +1,6 @@
  
 	<div class="easyui-panel" title="商品添加" style="width:100%;height:100%">
-		<div style="padding:10px 60px 20px 160px">
+		<div style="padding:10px 60px 20px 30px">
 	    <form id="ff" method="post" >
 	    	<table cellpadding="5">
 	    		<?php foreach ($tb as $v): ?>

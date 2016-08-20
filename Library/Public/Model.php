@@ -81,11 +81,7 @@
      //查找一条
     function find($whereArray = [],$colArray = "*")
     {
-        $whereArray["LIMIT"] = '1';
-        $this->_Result = $this->_db->select($this->_modelName,$colArray,$whereArray)[0];
-        //$this->_Result = (object)$this->_db->select($this->_modelName,$colArray,$whereArray)[0];
-        //exit(var_export($this->_Result->user_pwd,true));
-        //exit(var_export((object)$this->_db->select($this->_modelName,$colArray,$whereArray)[0],true));
+        $this->_Result = $this->_db->get($this->_modelName,$colArray,$whereArray);
         return $this->_Result;
     }
 
@@ -96,5 +92,11 @@
         if($Result)  $Result = $Result->fetchAll();      
         return $Result;
     }  
+
+    //查询总行数
+    function count($whereArray = [])
+    {
+      return  $this->_db->count($this->_modelName,$whereArray);
+    }
 }
 ?>
