@@ -40,7 +40,11 @@ class Admin extends Controller
       //exit
       exit(json_encode($result));
    }
-  #添加商品
+
+   /**
+   * power:{"role":"editor"}
+   * 添加商品 
+   */
   function addProd()
   {
 

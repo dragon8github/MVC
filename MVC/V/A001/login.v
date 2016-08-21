@@ -19,6 +19,12 @@ CssLoader::LoadViewCss("login.css");
 					</div>
 				</div>
 				<div class="form-group">
+					 <label for="inputPassword3" class="col-xs-3 control-label login_label">验证码：</label>
+					<div class="col-xs-9">
+					<img  title="点击刷新" src="/login/validateCode/" align="absbottom" onclick="this.src='/login/validateCode/?'+Math.random();"></img>
+					</div>
+				</div>
+				<div class="form-group">
 					<div class="col-xs-offset-3 col-xs-9">
 						<div class="checkbox">
 							 <label><input type="checkbox"  id="IsWeek" /> 一周内免登录</label>

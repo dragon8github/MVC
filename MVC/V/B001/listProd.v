@@ -28,7 +28,7 @@
 	 $(function(){
 	 	 
 	 	//以下是对分页控件的处理
-	 	 var p = $('#tb').datagrid('getPager');  
+ 		 var p = $('#tb').datagrid('getPager');  
 	 	 $(p).pagination({ 
      	pageSize:10, 
         pageList: [2,10,20],//可以设置每页记录条数的列表 

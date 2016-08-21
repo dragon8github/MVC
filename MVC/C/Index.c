@@ -10,7 +10,10 @@
     {
         $this->setViewName("index");
         $this->display(true,true);
+        
     }  
+
+    
  }
 
  ?>

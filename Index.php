@@ -39,13 +39,37 @@ include $_controller_path;
 //如果控制器不存在，则切换成404界面
 if(!class_exists($_controller)) exit_404();
 
-//反射并且实例化控制器
+//实例化控制器
 $_controllerobj = new $_controller();
 
 //如果函数存在，则切换成404界面
 if(!method_exists($_controllerobj, $_action)) exit_404();
 
-//调用函数
-$_controllerobj->$_action();
+//类注释反射
+$_ReflectionClass = new ReflectionClass($_controllerobj);
+
+//返回函数注释反射
+$_getMethod = $_ReflectionClass->getMethod($_action);
+
+if($_getMethod)
+{
+	//获取该函数的注释
+	$_getDocComment = $_getMethod->getDocComment(); 
+	//如果该函数需要权限
+	if(preg_match("/power:{(.*?)}/", $_getDocComment,$result))
+	{
+	  $admin_user = "Lee";  //测试
+	  $admin_role = array("editor");  //测试 
+	  //获取权限的json
+	  $role = json_decode("{".$result[1]."}")->role; 
+	  //如果用户存在该权限，则正常运行网页
+	  if(!$admin_user || !in_array($role, $admin_role)) exit('你没有访问权限');
+	}
+
+  	//调用函数
+	$_controllerobj->$_action();
+}
+
+
 
 ?>

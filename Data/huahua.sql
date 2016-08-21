@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50710
 File Encoding         : 65001
 
-Date: 2016-08-20 09:44:49
+Date: 2016-08-21 00:19:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,6 +32,23 @@ CREATE TABLE `admin` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `admin_role`
+-- ----------------------------
+DROP TABLE IF EXISTS `admin_role`;
+CREATE TABLE `admin_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `rolename` varchar(50) DEFAULT NULL,
+  `roledes` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of admin_role
+-- ----------------------------
+INSERT INTO `admin_role` VALUES ('1', 'admin', '管理员组');
+INSERT INTO `admin_role` VALUES ('2', 'editor', '编辑员组');
+
+-- ----------------------------
 -- Table structure for `admin_tree`
 -- ----------------------------
 DROP TABLE IF EXISTS `admin_tree`;
@@ -48,8 +65,8 @@ CREATE TABLE `admin_tree` (
 -- Records of admin_tree
 -- ----------------------------
 INSERT INTO `admin_tree` VALUES ('1', '商品管理', '', null, '0');
-INSERT INTO `admin_tree` VALUES ('2', '商品列表', '/index', 'open', '1');
-INSERT INTO `admin_tree` VALUES ('3', '商品添加', '/index', 'open', '1');
+INSERT INTO `admin_tree` VALUES ('2', '商品列表', '/admin/listprod', 'open', '1');
+INSERT INTO `admin_tree` VALUES ('3', '商品添加', '/admin/addProd', 'open', '1');
 INSERT INTO `admin_tree` VALUES ('4', '新闻管理', null, '', '0');
 INSERT INTO `admin_tree` VALUES ('5', '新闻添加', '/index', 'open', '4');
 INSERT INTO `admin_tree` VALUES ('6', '新闻列表', '/index', 'open', '4');
@@ -85,12 +102,24 @@ CREATE TABLE `shop_prod` (
   `is_public` bit(1) DEFAULT b'0' COMMENT '是否发布',
   `add_time` datetime DEFAULT NULL COMMENT '入库时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of shop_prod
 -- ----------------------------
 INSERT INTO `shop_prod` VALUES ('1', '3213', '', '1', '', '0000-00-00 00:00:00');
+INSERT INTO `shop_prod` VALUES ('2', '32123123', null, null, '', null);
+INSERT INTO `shop_prod` VALUES ('3', '123123123', null, null, '', null);
+INSERT INTO `shop_prod` VALUES ('4', '123123123', null, null, '', null);
+INSERT INTO `shop_prod` VALUES ('5', '123', null, null, '', null);
+INSERT INTO `shop_prod` VALUES ('6', '13', null, null, '', null);
+INSERT INTO `shop_prod` VALUES ('7', '123', null, null, '', null);
+INSERT INTO `shop_prod` VALUES ('8', '12', null, null, '', null);
+INSERT INTO `shop_prod` VALUES ('9', '31', null, null, '', null);
+INSERT INTO `shop_prod` VALUES ('10', '3', null, null, '', null);
+INSERT INTO `shop_prod` VALUES ('11', '123', null, null, '', null);
+INSERT INTO `shop_prod` VALUES ('12', '3212', null, null, '', null);
+INSERT INTO `shop_prod` VALUES ('13', '3123', null, null, '', null);
 
 -- ----------------------------
 -- Table structure for `shop_prod_class`
@@ -124,6 +153,21 @@ CREATE TABLE `shop_user` (
 -- Records of shop_user
 -- ----------------------------
 INSERT INTO `shop_user` VALUES ('1', 'Lee', 'skDtwJ4UI+/a+GlHZ/0wfQ==', '2016-07-20 17:25:56');
+
+-- ----------------------------
+-- Table structure for `user_role`
+-- ----------------------------
+DROP TABLE IF EXISTS `user_role`;
+CREATE TABLE `user_role` (
+  `roleid` int(11) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL,
+  PRIMARY KEY (`roleid`,`userid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of user_role
+-- ----------------------------
+INSERT INTO `user_role` VALUES ('1', '1');
 
 -- ----------------------------
 -- Procedure structure for `SP_question`

@@ -65,6 +65,11 @@ class Login extends Controller
        }
    }
 
+   function validateCode()
+   {
+      load_lib("ValidateCode","ValidateCode.php");
+   }
+
 
 }
 ?>
